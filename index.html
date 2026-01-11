@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday!</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== SPACE BACKGROUND ===== -->
+  <div id="space-bg">
+    <canvas id="stars-layer-1"></canvas>
+    <canvas id="stars-layer-2"></canvas>
+    <canvas id="stars-layer-3"></canvas>
+    <div id="nebula-overlay"></div>
+    <canvas id="shooting-stars"></canvas>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Happy Birthday, <span id="name">BHARATH</span>!</h1>
+    <p class="subtitle">Somewhere in this universe, you exist 🌌</p>
+  </div>
+
+  <!-- LETTER -->
+  <div class="section">
+    <button id="openLetterBtn" class="big-btn">To You 🚀</button>
+    <div id="letterModal" class="modal">
+      <div class="modal-content">
+        <span id="closeLetterBtn" class="close-btn">×</span>
+        <h2>Transmission for Bharath 📡</h2>
+        <p id="letter"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO PHOTO -->
+  <div id="hero-photo-section">
+    <img src="./assets/him.jpg" id="photo">
+  </div>
+
+  <!-- FAMILY -->
+  <div id="family-photo-section">
+    <img src="./assets/family.jpg" id="family-photo">
+  </div>
+
+  <!-- POLAROIDS -->
+  <div class="section">
+    <h2>Poopie 🌍</h2>
+    <p style="opacity:0.7;margin-bottom:10px;">Earthly memories preserved.</p>
+    <div id="polaroids">
+      <div class="polaroid"><img src="./assets/p1.jpg"></div>
+      <div class="polaroid"><img src="./assets/p2.jpg"></div>
+      <div class="polaroid"><img src="./assets/p3.jpg"></div>
+      <div class="polaroid"><img src="./assets/p4.jpg"></div>
+      <div class="polaroid"><img src="./assets/p5.jpg"></div>
+      <div class="polaroid"><img src="./assets/p6.jpg"></div>
+    </div>
+  </div>
+
+  <!-- DREAMS -->
+  <div class="section" id="dreams-section">
+    <h2>Bharath's Super Dreams</h2>
+    <div id="dream-cards">
+
+      <div class="dream-card" data-type="text" data-value="Click Next">
+        <div class="card-inner">
+          <div class="card-front">Click to reveal</div>
+          <div class="card-back"></div>
+        </div>
+      </div>
+
+      <div class="dream-card" data-type="text" data-value="Lost Again">
+        <div class="card-inner">
+          <div class="card-front">Click to reveal</div>
+          <div class="card-back"></div>
+        </div>
+      </div>
+
+      <div class="dream-card" data-type="text" data-value="Ride More">
+        <div class="card-inner">
+          <div class="card-front">Click to reveal</div>
+          <div class="card-back"></div>
+        </div>
+      </div>
+
+      <div class="dream-card" data-type="text" data-value="Plot Twist">
+        <div class="card-inner">
+          <div class="card-front">Click to reveal</div>
+          <div class="card-back"></div>
+        </div>
+      </div>
+
+      <div class="dream-card" data-type="image" data-value="./assets/p7.jpg">
+        <div class="card-inner">
+          <div class="card-front">Click to reveal</div>
+          <div class="card-back"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SPACE CAPSULES -->
+  <div class="section">
+    <h2>Space Capsules 🛸</h2>
+    <p style="opacity:0.7;margin-bottom:10px;">12 characteristics of the specimen: Bharath</p>
+
+    <div id="jars">
+      <div class="capsule" data-msg="Records guitar covers at midnight instead of sleeping">touch me</div>
+      <div class="capsule" data-msg="Can’t go a day without Valorant matches">touch me</div>
+      <div class="capsule" data-msg="Professional ragebaiter with zero regrets">touch me</div>
+      <div class="capsule" data-msg="Thinks bedtime is a social construct">touch me</div>
+      <div class="capsule" data-msg="Diet? More like temporary suggestion">touch me</div>
+      <div class="capsule" data-msg="Certified chaos generator at all times">touch me</div>
+      <div class="capsule" data-msg="Sweetest human disguised as a menace">touch me</div>
+      <div class="capsule" data-msg="Pookie level dangerously high">touch me</div>
+      <div class="capsule" data-msg="Makes glitches look adorable somehow">touch me</div>
+      <div class="capsule" data-msg="Learning new chicken marination masalas">touch me</div>
+      <div class="capsule" data-msg="Never admits he's actually talented">touch me</div>
+      <div class="capsule" data-msg="Universe is happier because he's in it">touch me</div>
+    </div>
+  </div>
+
+  <!-- ZOOM MODAL -->
+  <div id="zoomModal" class="zoom-modal">
+    <span id="zoomClose" class="zoom-close">×</span>
+    <img id="zoomImg" class="zoom-img">
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- ===== CAKE SECTION ===== -->
+  <div class="section" id="cake-section">
+    <h2>Bharath Day 🎂</h2>
+
+    <button id="yourCakeBtn" class="big-btn">
+      Your Cake 🍰
+    </button>
+
+    <p style="opacity:0.8;margin-top:10px;font-size:0.9rem;">
+      (Tap to view your special cake 🎉)
+    </p>
+  </div>
+
+<script>
+  document.getElementById("yourCakeBtn").onclick = () => {
+    window.open(
+      "https://teacher.gynzy.com/en/board/c874fc30-6568-4644-b8db-3fb3b528bdd9",
+      "_blank"
+    );
+  };
+</script>
+
+
+
+</body>
+</html>

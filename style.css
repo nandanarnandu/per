@@ -1,0 +1,389 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Dancing Script', cursive;
+  color: #d4e2ff;
+  background: #050B1A; /* NASA dark blue */
+  padding-bottom: 100px;
+  overflow-x: hidden;
+}
+
+/* ===== SPACE BACKGROUND LAYERS ===== */
+#space-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -5;
+  overflow: hidden;
+}
+
+#stars-layer-1,
+#stars-layer-2,
+#stars-layer-3,
+#shooting-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Nebula overlay */
+#nebula-overlay {
+  position: absolute;
+  inset: 0;
+  background: url('https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  filter: saturate(1.3) brightness(1.1);
+  pointer-events: none;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.header h1 {
+  font-size: 2.35rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #e9f0ff;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.75;
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+/* ===== SECTIONS (GLASS PANELS) ===== */
+.section {
+  margin-top: 60px;
+  padding: 24px;
+  width: 92%;
+  max-width: 900px;
+  margin-inline: auto;
+  background: rgba(10,18,32,0.48);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(120,160,255,0.22);
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0,20,60,0.45);
+}
+
+.section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 14px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ===== BUTTONS (MISSION UI) ===== */
+.big-btn, button {
+  background: linear-gradient(100deg, #112F6F, #356CFF);
+  color: #ddecff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+  margin: auto;
+  display: block;
+  box-shadow: 0 0 12px rgba(80,120,255,0.6);
+  transition: 0.25s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.big-btn:hover, button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px rgba(80,120,255,1);
+}
+
+/* ===== HERO PHOTO ===== */
+#hero-photo-section {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero-photo-section img {
+  max-width: 92%;
+  max-height: 92%;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 0 40px rgba(0,60,180,0.5);
+}
+
+/* ===== FAMILY PHOTO ===== */
+#family-photo-section {
+  text-align: center;
+  margin-top: 26px;
+}
+
+#family-photo-section img {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 14px;
+  box-shadow: 0 0 36px rgba(0,60,180,0.4);
+  margin-top: 10px;
+}
+
+/* ===== POLAROIDS ===== */
+#polaroids {
+  position: relative;
+  width: 100%;
+  min-height: 330px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  perspective: 800px;
+}
+
+.polaroid {
+  width: 200px;
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: float 4.8s ease-in-out infinite;
+  animation-delay: var(--d);
+  cursor: pointer;
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 22px rgba(80,120,255,0.45);
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(var(--r)); }
+  50%  { transform: translateY(-18px) rotate(calc(var(--r) + 3deg)); }
+  100% { transform: translateY(0px) rotate(var(--r)); }
+}
+
+}
+
+/* ===== DREAM CARDS ===== */
+#dreams-section {
+  text-align: center;
+}
+
+#dream-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+.dream-card {
+  width: 160px;
+  height: 220px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.dream-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.card-front {
+  background: rgba(20,40,80,0.7);
+  border: 1px solid rgba(110,150,255,0.3);
+}
+
+.card-back {
+  background: rgba(40,80,150,0.7);
+  color: #d6e2ff;
+  transform: rotateY(180deg);
+  border: 1px solid rgba(160,200,255,0.35);
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ===== SPACE CAPSULES ===== */
+#jars-section {
+  text-align: center;
+}
+
+#jars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.capsule {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(15,30,60,0.7);
+  border: 1px solid rgba(110,140,250,0.3);
+  box-shadow: 0 0 18px rgba(50,80,200,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  padding: 8px;
+  font-size: 0.7rem;
+  transition: transform .25s, background .25s, box-shadow .25s;
+}
+
+.capsule:hover {
+  transform: scale(1.1);
+}
+
+.capsule.open {
+  transform: scale(1.45);
+  background: rgba(70,130,255,0.85);
+  color: white;
+  box-shadow: 0 0 30px rgba(120,180,255,0.9);
+  border-color: rgba(180,220,255,0.9);
+  font-size: 0.78rem;
+  line-height: 1.1rem;
+}
+
+#cake-wrapper {
+  position: relative;
+  width: 340px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#cake {
+  position: relative;
+  width: 280px;
+  height: 220px;
+  margin: auto;
+}
+
+.tier {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff2dc;
+  border-radius: 50% / 20%;
+  border: 4px solid #b37a45;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.tier-bottom {
+  width: 280px;
+  height: 120px;
+  bottom: 0;
+}
+
+.tier-top {
+  width: 200px;
+  height: 90px;
+  bottom: 70px;
+}
+
+#candle-layer {
+  position: absolute;
+  width: 200px;
+  height: 90px;
+  left: 50%;
+  bottom: 120px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.candle {
+  position: absolute;
+  width: 6px;
+  height: 32px;
+  background: #ffe0e0;
+  border-radius: 3px;
+}
+
+.flame {
+  position: absolute;
+  top: -11px;
+  left: -2px;
+  width: 10px;
+  height: 14px;
+  background: radial-gradient(circle, #fff9af, #ffb63a, #ff4e00);
+  border-radius: 50%;
+  animation: flame 0.12s infinite;
+}
+
+@keyframes flame {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.18) translateY(-1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+#blow-btn {
+  margin-top: 14px;
+  padding: 12px 22px;
+  font-family: 'Orbitron', sans-serif;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255,140,0,0.8);
+}
+
+#birthday-message {
+  margin-top: 16px;
+  font-size: 1.4rem;
+  opacity: 0;
+  transition: 0.6s;
+  color: #ffd17a;
+}
+
+#cake-fireworks {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
